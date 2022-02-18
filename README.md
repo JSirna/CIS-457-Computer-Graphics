@@ -14,6 +14,7 @@ features of these functions and be unique.
 P lies:  
 - Inside ABC
 - Outside ABC
-- On an edge of ABC.
+- On an edge of ABC.  
+
 The user will specify the four points by clicking. [4 points]  
 5. The same as part 4, but, instead of displaying a line of text, the program computes the distances of P to the (infinite) lines AB, BC and CA, and draws the shortest possible line that connects P with the nearest of those three lines. [4 points]
