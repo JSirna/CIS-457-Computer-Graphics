@@ -17,4 +17,8 @@ P lies:
 - On an edge of ABC.  
 
 The user will specify the four points by clicking. [4 points]  
-5. The same as part 4, but, instead of displaying a line of text, the program computes the distances of P to the (infinite) lines AB, BC and CA, and draws the shortest possible line that connects P with the nearest of those three lines. [4 points]
+5. The same as part 4, but, instead of displaying a line of text, the program computes the distances of P to the (infinite) lines AB, BC and CA, and draws the shortest possible line that connects P with the nearest of those three lines. [4 points]  
+
+## Assignment 2  
+**Instructions**  
+If the determinant D = a11a22 - a12a21 of the matrix A = \[a11 a12, a21 a22] is nonzero, then the matrix 𝐴−1 = \[ 𝑎22/𝐷 − 𝑎12/𝐷 −𝑎21/𝐷 𝑎11/𝐷 ] is the inverse of A, that is 𝐴𝐴−1 = 𝐴−1𝐴 = 𝐼 = \[1 0, 0 1]. Prove this. [3 points]
