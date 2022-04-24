@@ -25,20 +25,7 @@ public class WaveformSimulator extends Frame{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File file = new File("/home/jsdev/Dropbox/Music/Resident Evil 3 - Option Screen (EXTENDED)-LtKQyEtBdJc.wav");
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new BufferedInputStream (new FileInputStream (file)));
-			String name = file.getName();
-			new WaveformSimulator(audioInputStream,name);
-			AudioCompressor ac = new AudioCompressor();
-			ac.Compress(audioInputStream);
-			ac.ConvertFileToAIFF("/home/jsdev/Dropbox/Music/Resident Evil 3 - Option Screen (EXTENDED)-LtKQyEtBdJc.wav", 
-								"/home/jsdev/Dropbox/Music/Resident Evil 3 - Option Screen (EXTENDED)-LtKQyEtBdJc.aiff");
-			
-		} catch (UnsupportedAudioFileException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		FileChooser.run(new FileChooser(), 250, 110);
 	}
 	
 	WaveformSimulator(AudioInputStream driver, String filename) {
