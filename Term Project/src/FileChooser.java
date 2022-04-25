@@ -52,9 +52,8 @@ public class FileChooser extends JFrame {
         
         //
         String filepath = c.getSelectedFile().getPath();
-        System.out.println(filepath);
+        System.out.println("File Selected: "+filepath);
         File file = new File(filepath);
-        System.out.println(file.getAbsolutePath());
         try {
     		AudioInputStream chosenFile = AudioSystem.getAudioInputStream(new BufferedInputStream (new FileInputStream (file)));
     		new WaveformSimulator(chosenFile,filepath);

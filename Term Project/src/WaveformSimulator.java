@@ -42,12 +42,18 @@ public class WaveformSimulator extends Frame{
 	      setVisible(true);
 	      validate();
 	      repaint();
+	      try {
+			driver.close(); //don't leave the stream  open
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	public void setAudio(AudioInputStream driver) {
 		singleChannelWaveformPanels = new ArrayList<SingleWaveformPanel>();
         audioInfo = new AudioInfo(driver);
-        System.out.println(audioInfo.getNumberOfChannels());
+        System.out.println("Number of Channels in the stream: "+audioInfo.getNumberOfChannels());
         for (int t=0; t<audioInfo.getNumberOfChannels(); t++){
             SingleWaveformPanel waveformPanel
                     = new SingleWaveformPanel(audioInfo, t);
@@ -113,6 +119,7 @@ class SingleWaveformPanel extends Canvas {
             oldX = xIndex;
             oldY = y;
         }
+        System.out.println("Number of samples in audio file: "+ samples.length);
     }
 	
 	public void paint(Graphics g) {
