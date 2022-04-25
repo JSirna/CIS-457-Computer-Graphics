@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedInputStream;
@@ -20,7 +21,7 @@ import javax.swing.JPanel;
 
 public class WaveformSimulator extends Frame{
 	
-	private ArrayList singleChannelWaveformPanels = new ArrayList();
+	private ArrayList<SingleWaveformPanel> singleChannelWaveformPanels = new ArrayList<SingleWaveformPanel>();
     private AudioInfo audioInfo = null;
 
 	public static void main(String[] args) {
@@ -35,14 +36,18 @@ public class WaveformSimulator extends Frame{
 	         {System.exit(0);}
 	      });
 	      setSize(340, 230);
+	      setLayout(new GridLayout(0,1));
 	      setAudio(driver);
 //	      add("Center");
 	      setVisible(true);
+	      validate();
+	      repaint();
 	}
 	
 	public void setAudio(AudioInputStream driver) {
-		singleChannelWaveformPanels = new ArrayList();
+		singleChannelWaveformPanels = new ArrayList<SingleWaveformPanel>();
         audioInfo = new AudioInfo(driver);
+        System.out.println(audioInfo.getNumberOfChannels());
         for (int t=0; t<audioInfo.getNumberOfChannels(); t++){
             SingleWaveformPanel waveformPanel
                     = new SingleWaveformPanel(audioInfo, t);
@@ -112,6 +117,7 @@ class SingleWaveformPanel extends Canvas {
 	
 	public void paint(Graphics g) {
 		int lineHeight = getHeight() / 2;
+//		super.paint(g);
         g.setColor(Color.black);
         g.drawLine(0, lineHeight, (int)getWidth(), lineHeight);
 //        CvBresenham.drawLine(g,0, lineHeight, (int)getWidth(), lineHeight);
